@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        NavigationStack {
         ZStack
         {
             Color(red: 1.0, green: 0.98, blue: 0.94)
@@ -25,7 +26,6 @@ struct ContentView: View {
                     .font(.custom("Baby Doll", size: 22))
                     .foregroundColor(Color(hue: 0.085, saturation: 0.592, brightness: 0.509))
                     .padding(.top, 10)
-                NavigationStack {
                     
                     NavigationLink(destination: About()) {
                         Image("About")
@@ -64,16 +64,9 @@ struct ContentView: View {
                                 .cornerRadius(15)
                                 .frame(width: 200,height:200)
                         }
-                        
-                     
                     }
-                    
-                    
-                    
                 }
             }
-            
-            
             .padding()
         }
     }
