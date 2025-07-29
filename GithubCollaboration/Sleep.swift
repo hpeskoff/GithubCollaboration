@@ -13,3 +13,8 @@ struct Sleep: View {
         Text("renee")
     }
 }
+
+#Preview {
+    Sleep()
+}
+

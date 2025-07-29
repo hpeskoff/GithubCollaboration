@@ -5,6 +5,7 @@
 //  Created by Scholar on 7/29/25.
 //
 
+
 import Foundation
 import SwiftUI
 struct Nutrition: View {
@@ -25,20 +26,23 @@ struct Nutrition: View {
     }
     
     var body: some View {
-        VStack {
-            Text("Nutrition")
-                .font(.custom("Baby Doll", size: 40))
-                .foregroundColor(Color(red: 0.286, green: 0.431, blue: 0.425))
-        
-            Text("please input your info")
-                .font(.custom("Baby Doll", size: 22))
-                .foregroundColor(Color(hue: 0.085, saturation: 0.592, brightness: 0.509))
-                .padding(.top, 10)
-         //   Spacer()
-            
+        ZStack {
+            Color(red: 1.0, green: 0.98, blue: 0.94)
+                .ignoresSafeArea()
+            VStack {
+                Text("Nutrition")
+                    .font(.custom("Baby Doll", size: 40))
+                    .foregroundColor(Color(red: 0.286, green: 0.431, blue: 0.425))
+                
+                Text("please input your info")
+                    .font(.custom("Baby Doll", size: 22))
+                    .foregroundColor(Color(hue: 0.085, saturation: 0.592, brightness: 0.509))
+                    .padding(.top, 10)
+                //   Spacer()
+                
                 VStack {
-            //        Text(textTitle)
-                  //  Text("")
+                    //        Text(textTitle)
+                    //  Text("")
                     TextField(" Age", text: $age)
                     TextField(" Gender (M/F)", text: $gender)
                     TextField(" Activity Level (1-10)", text: $active)
@@ -48,6 +52,7 @@ struct Nutrition: View {
                     }
                     
                     
+                }
             }
             
             
@@ -55,3 +60,7 @@ struct Nutrition: View {
         }
     }
 }
+#Preview {
+    Nutrition()
+}
+
