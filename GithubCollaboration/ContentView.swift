@@ -25,8 +25,47 @@ struct ContentView: View {
                     .font(.custom("Baby Doll", size: 22))
                     .foregroundColor(Color(hue: 0.085, saturation: 0.592, brightness: 0.509))
                     .padding(.top, 10)
-                
+                NavigationStack {
+                    
+                    
+                    NavigationLink(destination: Nutrition()) {
+                        Image("Nutrition")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(15)
+                            .frame(width: 900,height:200)
+                    }
+                    HStack {
+                        NavigationLink(destination: Sleep()) {
+                            Image("Sleep")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .cornerRadius(15)
+                                .frame(width: 200,height:200)
+                        }
+                        NavigationLink(destination: Social()) {
+                            Image("Social")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .cornerRadius(15)
+                                .frame(width: 200,height:200)
+                        }
+                        
+                        NavigationLink(destination: InitialEvaluation()) {
+                            Image("Initial")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .cornerRadius(15)
+                                .frame(width: 200,height:200)
+                        }
+                    }
+                    
+                    
+                    
+                }
             }
+            
+            
             .padding()
         }
     }

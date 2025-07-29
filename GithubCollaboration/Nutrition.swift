@@ -1,5 +1,5 @@
 //
-//  InitialEvaluation.swift
+//  Nutrition.swift
 //  GithubCollaboration
 //
 //  Created by Scholar on 7/29/25.
@@ -8,10 +8,9 @@
 import Foundation
 import SwiftUI
 
-struct InitialEvaluation: View {
+struct Nutrition: View {
     var body: some View {
-        Text("About 💁🏼")
-        
-    
+        Text("work in progress")
     }
 }
+
