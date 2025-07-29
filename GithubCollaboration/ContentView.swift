@@ -27,6 +27,20 @@ struct ContentView: View {
                     .padding(.top, 10)
                 NavigationStack {
                     
+                    NavigationLink(destination: About()) {
+                        Image("About")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(15)
+                            .frame(width: 200,height:200)
+                    }
+                    NavigationLink(destination: InitialQuiz()) {
+                        Image("Initial")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(15)
+                            .frame(width: 200,height:200)
+                    }
                     
                     NavigationLink(destination: Nutrition()) {
                         Image("Nutrition")
@@ -51,13 +65,7 @@ struct ContentView: View {
                                 .frame(width: 200,height:200)
                         }
                         
-                        NavigationLink(destination: InitialEvaluation()) {
-                            Image("Initial")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .cornerRadius(15)
-                                .frame(width: 200,height:200)
-                        }
+                     
                     }
                     
                     

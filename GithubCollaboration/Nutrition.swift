@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Nutrition: View {
     var body: some View {
-        Text("work in progress")
+        Text("nutriiotn olivia")
     }
 }
 
