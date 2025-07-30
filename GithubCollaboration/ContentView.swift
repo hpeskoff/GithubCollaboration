@@ -32,14 +32,14 @@ struct ContentView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .cornerRadius(15)
-                            .frame(width: 200,height:200)
+                            .frame(width: 190,height:200)
                     }
                     NavigationLink(destination: InitialQuiz()) {
                         Image("Initial")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .cornerRadius(15)
-                            .frame(width: 200,height:200)
+                            .frame(width: 190,height:100)
                     }
                     
                     NavigationLink(destination: Nutrition()) {
@@ -47,7 +47,7 @@ struct ContentView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .cornerRadius(15)
-                            .frame(width: 900,height:200)
+                            .frame(width: 500,height:200)
                     }
                     HStack {
                         NavigationLink(destination: Sleep()) {
@@ -55,7 +55,7 @@ struct ContentView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .cornerRadius(15)
-                                .frame(width: 200,height:200)
+                                .frame(width: 200,height:100)
                         }
                         NavigationLink(destination: Social()) {
                             Image("Social")
