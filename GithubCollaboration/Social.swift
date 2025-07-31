@@ -32,6 +32,7 @@ struct Social: View {
                 
                 TextField("Would you describe yourself as a...", text: $social_extroversion)
                     .padding()
+                Text("hello")
                 
             }
             
