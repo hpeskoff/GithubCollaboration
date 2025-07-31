@@ -1,102 +1,83 @@
+//
+// Social.swift
+// GithubCollaboration
+//
+// Created by Scholar on 7/29/25.
+//
 import Foundation
 import SwiftUI
-
-
-
 struct Social: View {
-    @State private var social_confidence = ""
-    @State private var social_connection = ""
-    @State private var social_extroversion = ""
-    
-
-    // Computed property to determine the message based on social confidence
-    var confidenceMessage: String {
-        guard let confidence = Int(social_confidence), confidence >= 1 && confidence <= 10 else {
-            return "Please enter a number between 1 and 10."
-        }
-        
-        if confidence >= 7 {
-            return "Great! You have high confidence in your social skills."
-        } else if confidence >= 4 {
-            return "You seem fairly confident in your social skills. Some recommendations to become even more confident in your social skills are attend events where you can meet new people like parties,and clubs. In addition you can also volunteering is also a great way to meet people with similar passions to yourself."
-        } else {
-            return "It seems you need to work on your social skills. Some recommendations of ways to improve are talking to someone familiar like a coworker or classmate,keep focused while the speaker is talking, and ask basic 'what','how','why'questions. "
-        }
+  @State private var age: Int?
+  @State private var adviceText = ""
+  func getResult(age: Int) -> String {
+    switch age {
+    case 0..<6:
+      return "Bring a toy to daycare or hangout at the playground."
+    case 6..<13:
+      return "Try connecting through games, clubs, or school events!"
+    case 13..<18:
+      return "Explore social opportunities at school, sports, or volunteer programs."
+    case 18..<30:
+      return "Look into college events, online communities, and networking meetups."
+    case 30..<60:
+      return "Join local groups, community centers, or hobby clubs."
+    case 60...:
+      return "Senior centers, lifelong learning classes, and family gatherings can help!"
+    default:
+      return "Please enter a valid age."
     }
-    
-    // Computed property to determine the message based on social connection
-    var connectionMessage: String {
-        guard let connection = Int(social_connection), connection > 0 else {
-            return "Please enter a valid number."
-        }
-        
-        if connection >= 5 {
-            return "You have plenty of opportunities to connect with people."
-        } else if connection >= 2 {
-            return "You have some opportunities to connect with people."
-        } else {
-            return "You might want to find more ways to connect with people."
-        }
-    }
-    
-    // Computed property to determine the message based on social extroversion
-    var extroversionMessage: String {
-        if social_extroversion.lowercased().contains("extrovert") {
-            return "You seem to be an extrovert!"
-        } else if social_extroversion.lowercased().contains("introvert") {
-            return "You seem to be an introvert!"
-        } else {
-            return "You have traits of introversion and extroversion."
-        }
-    }
-    
-
-    var body: some View {
-        Text("This is the Social Wellbeing section.")
-            .multilineTextAlignment(.center)
-            .padding()
-
-        ZStack {
-
-            Color(red: 1.0, green: 0.98, blue: 0.94)
-                .ignoresSafeArea()
-            
-            VStack(spacing: 10) {
-                TextField("Rank from 1-10 how confident do you feel about your social skills.", text: $social_confidence)
-                    .padding()
-                
-                TextField("How many chances do you get to connect with people?", text: $social_connection)
-                    .padding()
-                
-                TextField("Would you describe yourself as a...", text: $social_extroversion)
-                    .padding()
-
-                Text("hello")
-                
+  }
+  var body: some View {
+    ZStack {
+      Color(red: 1.0, green: 0.98, blue: 0.94)
+        .ignoresSafeArea()
+      VStack {
+        Image("SocialPic2")
+          .resizable()
+          .frame(width: 550, height: 200)
+        Text("Social Advice")
+          .font(.custom("Baby Doll", size: 50))
+          .foregroundColor(Color(red: 0.38, green: 0.858, blue: 0.757))
+          .offset(x: 0, y: 25)
+        Text("Don't feel fulfilled in your social life? ThriveCheck has got you! Based on your age group, we will provide relevant ways for you to connect with your peers!")
+          .foregroundColor(Color(hue: 0.107, saturation: 0.735, brightness: 0.803))
+          .font(.custom("Baby Doll", size: 20))
+          .multilineTextAlignment(.center)
+          .frame(maxWidth: 380)
+          .padding(.top, 20)
+          .font(.custom("Quicksand_Book_Oblique", size: 20))
+          .padding()
+        TextField("Enter your age", value: $age, formatter: NumberFormatter())
+          .keyboardType(.numberPad)
+          .font(.custom("Baby Doll", size: 19))
+          .padding()
+          .background(Color.white)
+          .cornerRadius(10)
+          .overlay(
+            RoundedRectangle(cornerRadius: 10)
+              .stroke(Color(red: 254/255, green: 175/255, blue: 176/255), lineWidth: 2)
+          )
+          .frame(maxWidth: 200)
+          .onSubmit {
+            if let age = age {
+              adviceText = getResult(age: age)
+            } else {
+              adviceText = "Please enter a valid age."
             }
-            
-
-            
-
-                
-                // Display messages based on user input
-                Text(confidenceMessage)
-                    .foregroundColor(.blue)
-                    .padding()
-                
-                Text(connectionMessage)
-                    .foregroundColor(.green)
-                    .padding()
-                
-                Text(extroversionMessage)
-                    .foregroundColor(.purple)
-                    .padding()
-            }
-
-        }
+          }
+        Text(adviceText)
+          .font(.custom("Baby Doll", size: 25))
+          .foregroundColor(Color(red: 0.38, green: 0.858, blue: 0.757))
+          .offset(x: 0, y: 25)
+          .multilineTextAlignment(.center)
+          .padding()
+          .frame(maxWidth: 350)
+      }
     }
+  }
 }
-
 #Preview {
-    Social()
+  Social()
 }
+
+
