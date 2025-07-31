@@ -1,11 +1,14 @@
 import Foundation
 import SwiftUI
 
+
+
 struct Social: View {
     @State private var social_confidence = ""
     @State private var social_connection = ""
     @State private var social_extroversion = ""
     
+
     // Computed property to determine the message based on social confidence
     var confidenceMessage: String {
         guard let confidence = Int(social_confidence), confidence >= 1 && confidence <= 10 else {
@@ -47,12 +50,14 @@ struct Social: View {
         }
     }
     
+
     var body: some View {
         Text("This is the Social Wellbeing section.")
             .multilineTextAlignment(.center)
             .padding()
-        
+
         ZStack {
+
             Color(red: 1.0, green: 0.98, blue: 0.94)
                 .ignoresSafeArea()
             
@@ -65,6 +70,14 @@ struct Social: View {
                 
                 TextField("Would you describe yourself as a...", text: $social_extroversion)
                     .padding()
+
+                Text("hello")
+                
+            }
+            
+
+            
+
                 
                 // Display messages based on user input
                 Text(confidenceMessage)
@@ -79,6 +92,7 @@ struct Social: View {
                     .foregroundColor(.purple)
                     .padding()
             }
+
         }
     }
 }
